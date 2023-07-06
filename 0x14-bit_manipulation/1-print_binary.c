@@ -1,28 +1,31 @@
+
 #include "main.h"
 #include <stdio.h>
 
 /**
- * print_binary - Prints the Binary Equivalent of a Decimal number
- * @n: Number to Print in Binary
+ * print_binary - Binary Representation..
+ * @n: Argumentfirst..
+ * Return: Return Zero if not..
  */
+
 void print_binary(unsigned long int n)
 {
-	int z, count = 0;
-	unsigned long int current;
+	int new_elem_data;
 
-	for (z = 63; z >= 0; z--)
-	{
-		current = n >> z;
+	static int len;
 
-		if (current & 1)
+	if (n == 0 && len > 0)
 		{
-			_putchar('1');
-			count++;
+			return;
 		}
-		else if (count)
+		else if (n == 0)
+		{
 			_putchar('0');
-	}
-	if (!count)
-		_putchar('0');
+			return;
+		}
+	new_elem_data = (n & 1);
+	len++;
+	print_binary(n >>= 1);
+	_putchar('0' + new_elem_data);
 }
 
