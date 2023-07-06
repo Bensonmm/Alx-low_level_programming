@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_binary - Prints the Binary Equivalent of a Decimal number
@@ -24,3 +25,4 @@ void print_binary(unsigned long int n)
 	if (!count)
 		_putchar('0');
 }
+
