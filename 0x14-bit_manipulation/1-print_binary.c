@@ -8,31 +8,22 @@
 
 void print_binary(unsigned long int n)
 {
-	if (n == 0)
-	{
-		printf("0");  /* Base case: n is zero */
-		return;
-	}
+	int i, count = 0;
+	unsigned long int current;
 
-	/* Find the most significant bit position */
-	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
-	while (mask > 0 && (n & mask) == 0)
+	for (i = 63; i >= 0; i--)
 	{
-		mask >>= 1;
-	}
+		current = n >> i;
 
-	/* Print the binary representation */
-	while (mask > 0)
-	{
-		if ((n & mask) != 0)
+		if (current & 1)
 		{
-			printf("1");
+			_putchar('1');
+			count++;
 		}
-		else
-		{
-			printf("0");
-		}
-		mask >>= 1;
+		else if (count)
+			_putchar('0');
 	}
+	if (!count)
+		_putchar('0');
 }
 
