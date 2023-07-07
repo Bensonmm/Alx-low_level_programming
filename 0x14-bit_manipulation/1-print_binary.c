@@ -6,24 +6,32 @@
  * @n: number to print in binary
  */
 
+#include <stdio.h>
+
 void print_binary(unsigned long int n)
 {
-	int i, count = 0;
-	unsigned long int current;
+    int count = 0;
+    unsigned long int mask = 1UL << 63;
 
-	for (i = 63; i >= 0; i--)
-	{
-		current = n >> i;
+    while (mask > 0)
+    {
+        if (n & mask)
+        {
+            putchar('1');
+            count++;
+        }
+        else if (count)
+        {
+            putchar('0');
+        }
 
-		if (current & 1)
-		{
-			_putchar('1');
-			count++;
-		}
-		else if (count)
-			_putchar('0');
-	}
-	if (!count)
-		_putchar('0');
+        mask >>= 1;
+    }
+
+    if (!count)
+    {
+        putchar('0');
+    }
 }
+
 
