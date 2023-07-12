@@ -29,3 +29,4 @@ if (*(ops[i].op) == *s)
 }
 return (NULL);
 }
+
