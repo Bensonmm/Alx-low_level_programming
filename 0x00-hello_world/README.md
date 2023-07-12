@@ -1,1 +1,1 @@
-0x00 Hello world  dir 
+0x00 Hello world
